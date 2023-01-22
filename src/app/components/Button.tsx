@@ -8,6 +8,7 @@ export type BaseButtonProps = {
   onClick?(): void;
   shouldShrinkOnMobile?: boolean;
   shouldMoveOnHover?: boolean;
+  tabIndex?: number;
 };
 export type TextButtonProps = BaseButtonProps & {
   text: string;
@@ -27,6 +28,7 @@ export default function Button({
   onClick,
   shouldShrinkOnMobile,
   shouldMoveOnHover = true,
+  tabIndex = 0,
   ...props
 }: ButtonProps) {
   let content = null;
@@ -53,6 +55,7 @@ export default function Button({
         shouldMoveOnHover ? "hover:-mt-1 hover:drop-shadow-xl" : ""
       }`}
       onClick={() => onClick && onClick()}
+      tabIndex={tabIndex}
     >
       {content}
     </button>
