@@ -8,7 +8,7 @@ export interface ContactModalStore {
 }
 
 export const useContactModalStore = create<ContactModalStore>((set) => ({
-  isModalOpen: true,
+  isModalOpen: false,
   email: "",
   setIsModalOpen: (value: boolean) =>
     set(() => ({
