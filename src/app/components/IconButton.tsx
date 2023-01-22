@@ -1,33 +1,29 @@
 "use client";
 
 import { IconType } from "react-icons/lib";
+import Button, { BaseButtonProps } from "./Button";
 
-export interface IconButtonProps {
-  text: string;
+export type IconButtonProps = BaseButtonProps & {
   icon: IconType;
-  backgroundColor: string;
-  hoverBackgroundColor?: string;
-  contentColor: string;
-  onClick?(): void;
-}
+  text: string;
+};
 
 export default function IconButton({
   text,
   icon: IconComponent,
-  backgroundColor,
-  hoverBackgroundColor = backgroundColor,
-  contentColor,
-  onClick,
+  shouldShrinkOnMobile = true,
+  ...props
 }: IconButtonProps) {
-  const component = (
-    <button
-      className={`w-10 md:w-36 h-10 px-0 md:px-2 mx-2 ${backgroundColor} ${hoverBackgroundColor} ${contentColor} flex flex-row items-center justify-evenly rounded-full transition-all duration-150 drop-shadow-sm hover:drop-shadow-xl hover:-mt-1`}
-      onClick={() => onClick && onClick()}
-    >
+  return (
+    <Button {...props} shouldShrinkOnMobile={shouldShrinkOnMobile}>
       <IconComponent size={20} />
-      <p className="font-medium hidden md:flex">{text}</p>
-    </button>
+      <p
+        className={`font-medium ${
+          shouldShrinkOnMobile ? "hidden md:flex" : "flex"
+        }`}
+      >
+        {text}
+      </p>
+    </Button>
   );
-
-  return component;
 }
