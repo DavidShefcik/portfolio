@@ -7,7 +7,7 @@ import ExternalLinkButton from "./HeaderLinkButton";
 // TODO: Animate header background color change based on scroll position above section
 // TODO: Animate content fading in an out when scrolling past macbook model
 export default function Header() {
-  const backgroundColor = "bg-upstairs-purple";
+  const backgroundColor = "bg-dark";
 
   return (
     <div

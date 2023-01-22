@@ -1,9 +1,13 @@
-import Header from "./components/Header";
+import OverviewSection from "./components/sections/OverviewSection";
+import UpstairsSection from "./components/sections/UpstairsSection";
+import WazameSection from "./components/sections/WazameSection";
 
 export default function Home() {
   return (
     <div>
-      <p>Home</p>
+      <OverviewSection />
+      <UpstairsSection />
+      <WazameSection />
     </div>
   );
 }

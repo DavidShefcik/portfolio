@@ -12,7 +12,7 @@ module.exports = {
       ...colors,
       dark: "#0a0a0a",
       "upstairs-purple": "#6122bf",
-      "upstairs-dark-purple": "#541aab",
+      "wazame-green": "#0fa354",
       "github-white": "#fafafa",
       "github-gray": "#333333",
       "linkedin-blue": "#0077B5",
