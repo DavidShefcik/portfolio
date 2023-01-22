@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { BsGithub, BsLinkedin, BsInboxFill } from "react-icons/bs";
 
-import ExternalLinkButton from "./HeaderLinkButton";
+import LinkButton from "./LinkButton";
 
 // TODO: Animate header background color change based on scroll position above section
 // TODO: Animate content fading in an out when scrolling past macbook model
@@ -21,14 +21,14 @@ export default function Header() {
         </Link>
       </span>
       <span className="flex flex-row items-center justify-evenly">
-        <ExternalLinkButton
+        <LinkButton
           text="GitHub"
           url="/github"
           icon={BsGithub}
           contentColor="text-github-white"
           backgroundColor="bg-github-gray"
         />
-        <ExternalLinkButton
+        <LinkButton
           text="LinkedIn"
           url="/linkedin"
           icon={BsLinkedin}
@@ -36,7 +36,7 @@ export default function Header() {
           backgroundColor="bg-linkedin-blue"
         />
         <span className="hidden md:flex">
-          <ExternalLinkButton
+          <LinkButton
             text="Resume"
             url="/resume"
             icon={BsInboxFill}
