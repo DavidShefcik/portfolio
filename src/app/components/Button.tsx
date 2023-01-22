@@ -1,4 +1,4 @@
-import { Component, ReactNode } from "react";
+import { ReactNode } from "react";
 
 export type BaseButtonProps = {
   backgroundColor: string;
@@ -6,7 +6,8 @@ export type BaseButtonProps = {
   activeBackgroundColor?: string;
   contentColor: string;
   onClick?(): void;
-  shouldShrinkOnMobile: boolean;
+  shouldShrinkOnMobile?: boolean;
+  shouldMoveOnHover?: boolean;
 };
 export type TextButtonProps = BaseButtonProps & {
   text: string;
@@ -21,16 +22,25 @@ type ButtonProps = TextButtonProps | ChildrenButtonProps;
 export default function Button({
   backgroundColor,
   contentColor,
-  activeBackgroundColor,
-  hoverBackgroundColor,
+  hoverBackgroundColor = backgroundColor,
+  activeBackgroundColor = hoverBackgroundColor,
   onClick,
   shouldShrinkOnMobile,
+  shouldMoveOnHover = true,
   ...props
 }: ButtonProps) {
   let content = null;
 
   if (typeof props.text !== "undefined") {
-    content = <p className="font-medium hidden md:flex">{props.text}</p>;
+    content = (
+      <p
+        className={`font-medium ${
+          shouldShrinkOnMobile ? "hidden md:flex" : "flex"
+        }`}
+      >
+        {props.text}
+      </p>
+    );
   } else {
     content = props.children;
   }
@@ -39,7 +49,9 @@ export default function Button({
     <button
       className={`h-10 mx-2 ${
         shouldShrinkOnMobile ? "w-10 px-0 md:w-36 md:px-2" : "w-36 px-2"
-      } ${backgroundColor} ${hoverBackgroundColor} ${activeBackgroundColor} ${contentColor} flex flex-row items-center justify-evenly rounded-full transition-all duration-150 drop-shadow-sm hover:drop-shadow-xl hover:-mt-1`}
+      } ${backgroundColor} ${hoverBackgroundColor} ${activeBackgroundColor} ${contentColor} flex flex-row items-center justify-evenly rounded-full transition-all duration-150 drop-shadow-sm ${
+        shouldMoveOnHover ? "hover:-mt-1 hover:drop-shadow-xl" : ""
+      }`}
       onClick={() => onClick && onClick()}
     >
       {content}

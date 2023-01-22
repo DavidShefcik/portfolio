@@ -7,7 +7,7 @@ import LinkButton from "./LinkButton";
 // TODO: Animate header background color change based on scroll position above section
 // TODO: Animate content fading in an out when scrolling past macbook model
 export default function Header() {
-  const backgroundColor = "bg-dark";
+  const backgroundColor = "bg-wazame-green";
 
   return (
     <div
@@ -35,7 +35,7 @@ export default function Header() {
           contentColor="text-white"
           backgroundColor="bg-linkedin-blue"
         />
-        <span className="hidden md:flex">
+        <span className="hidden sm:flex">
           <LinkButton
             text="Resume"
             url="/resume"

@@ -15,10 +15,11 @@ export default function ContactButton() {
         text="Contact Me"
         contentColor="text-gray-800"
         backgroundColor="bg-gray-50"
-        hoverBackgroundColor="hover:bg-gray-300"
-        activeBackgroundColor="active:bg-gray-400"
+        hoverBackgroundColor="hover:bg-gray-200"
+        activeBackgroundColor="active:bg-gray-300"
         onClick={() => setIsModalOpen(true)}
         shouldShrinkOnMobile={false}
+        shouldMoveOnHover={false}
       />
     </div>
   );
