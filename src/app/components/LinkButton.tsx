@@ -8,7 +8,7 @@ type Props = Omit<IconButtonProps, "onPress"> & {
 
 export default function LinkButton({ url, ...props }: Props) {
   return (
-    <Link href={url} title={props.text}>
+    <Link href={url} title={props.text} target="blank">
       <IconButton {...props} />
     </Link>
   );
