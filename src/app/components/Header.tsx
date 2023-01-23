@@ -2,16 +2,18 @@
 import Link from "next/link";
 import { BsGithub, BsLinkedin, BsInboxFill } from "react-icons/bs";
 
+import useHeaderBackgroundColor from "@app/hooks/useHeaderBackgroundColor";
 import LinkButton from "./LinkButton";
+import { SectionDOMId } from "@constants/sectionDOMIds";
 
-// TODO: Animate header background color change based on scroll position above section
 // TODO: Animate content fading in an out when scrolling past macbook model
 export default function Header() {
-  const backgroundColor = "bg-wazame-green";
+  const { backgroundColor } = useHeaderBackgroundColor();
 
   return (
     <div
-      className={`flex flex-row items-center justify-between w-full h-20 px-4 md:px-16 fixed ${backgroundColor}`}
+      id={SectionDOMId.HEADER}
+      className={`flex flex-row items-center justify-between w-full h-20 px-4 md:px-16 fixed transition-colors duration-200 ${backgroundColor}`}
     >
       <span>
         <Link href="/">
